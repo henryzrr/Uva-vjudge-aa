@@ -1,13 +1,13 @@
 #include<cstdio>
 #include<cmath>
-#include<map>
-#include<ctime>
+#include<unordered_map>
+
 
 using namespace std;
 unsigned long cortes[21],res,n,tam,aux;
-map<unsigned long, map<unsigned long,unsigned long>> saved;
-map<unsigned long,unsigned long>::iterator it;
-clock_t ti,tf;
+unordered_map<unsigned long, unordered_map<unsigned long,unsigned long>> saved;
+unordered_map<unsigned long,unsigned long>::iterator it;
+
 void llenarcortes(){
     for(int i=0;i<21;i++){
         cortes[i]=pow(i+1,3);
@@ -36,12 +36,9 @@ unsigned long getWaystoPay(unsigned long saldo,int pos){
 int main(){
     llenarcortes();
     while(scanf("%lu",&n)!=EOF){
-        ti=clock();
         aux = round(pow(n,(double)1/3));
         aux = aux>21?21:aux;
         printf("%lu\n",n<8?1:getWaystoPay(n,n<27?aux:aux-1));
-        tf=clock();
-        printf("%f\n",(double)(tf-ti)/CLOCKS_PER_SEC);
     }
     return 0;
 }
