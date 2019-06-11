@@ -6,7 +6,6 @@
 using namespace std;
 map<int,map<int,int>> grafo;
 unordered_map<int,int>padre;
-
 int main(){
     scanf("%i",&nodos); 
     for(i=0;i<nodos;i++){
